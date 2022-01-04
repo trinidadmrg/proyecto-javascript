@@ -1,0 +1,111 @@
+html,
+body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #f8f1f3;
+  font-family: "Didact Gothic", sans-serif;
+}
+
+.navbarInside {
+  background-color: #fccedf;
+}
+.navbarColor {
+  background-color: #fccedf;
+  box-shadow: 0 4px 2px -2px gray;
+}
+
+.divGrande {
+  display: block;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  width: 97%;
+  margin: 0 auto;
+  margin-top: 7px;
+  box-shadow: 0px 8px 10px grey;
+  padding: 20px;
+}
+section {
+  padding-bottom: 15px;
+}
+
+h1 {
+  font-size: 35px;
+  text-align: center;
+  color: #f5b19f;
+  font-family: "Passion One", cursive;
+}
+
+h2 {
+  font-size: 25px;
+  text-align: center;
+  color: #df89a4;
+  font-family: "Passion One", cursive;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.2;
+  text-align: center;
+  color: #c5b9ed;
+}
+
+.botonPrincipal {
+  display: block;
+  margin: 0 auto;
+  background-color: #f5b19f;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px grey;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.botonPrincipal:hover {
+  background-color: white;
+  color: #f5b19f;
+}
+
+video {
+  width: 95%;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px grey;
+}
+
+.opcionUno {
+  display: block;
+  margin: 0 auto;
+  background-color: #c5b9ed;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px grey;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.opcionDos {
+  display: block;
+  margin: 0 auto;
+  background-color: #df89a4;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px grey;
+  color: white;
+  margin-bottom: 10px;
+}
+
+footer {
+  background-color: #df89a4;
+  margin-top: 15px;
+  box-shadow: 0px 2px 5px grey;
+  padding: 25px;
+}
+
+.firmaFooter {
+  color: white;
+  font-size: 10px;
+}
