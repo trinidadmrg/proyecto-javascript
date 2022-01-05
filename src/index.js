@@ -40,6 +40,7 @@ function bienvenida(event) {
   // Trae los valores:
   let padre = document.getElementById("saludar-usuario");
   let userName = document.getElementById("input-name").value;
+  localStorage.setItem("Nombre", userName);
 
   // Crea un nuevo elemento:
   let newWelcome = document.createElement("div");
@@ -195,4 +196,7 @@ function botonSecundario(event) {
     newOutfitResult.innerHTML = `<h2>Lo lamento, debido a un error interno no hemos podido encontrar un match. Intenta nuevamente</h2>`
     padreDos.appendChild(newOutfitResult);
    }
+   localStorage.setItem("Outfit", JSON.stringify(newOutfitResult.innerHTML))
 }
+
+// Para la próxima entrega agregaré una sección de outfits anteriores y profundizaré el Local Storage y JSON
