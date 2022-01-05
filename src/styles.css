@@ -68,6 +68,29 @@ p {
   color: #f5b19f;
 }
 
+.botonSecundario {
+  display: block;
+  margin: 0 auto;
+  background-color: #c5b9ed;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px grey;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.botonSecundario:hover {
+  background-color: white;
+  color: #c5b9ed;
+}
+
+.inputsGenerales {
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
 video {
   width: 95%;
   border-radius: 10px;
@@ -108,4 +131,12 @@ footer {
 .firmaFooter {
   color: white;
   font-size: 10px;
+}
+
+.oculto {
+  display: none;
+}
+
+.visible {
+  display: block;
 }
