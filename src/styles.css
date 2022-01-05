@@ -38,14 +38,14 @@ h1 {
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
   color: #df89a4;
   font-family: "Passion One", cursive;
 }
 
 p {
-  font-size: 18px;
+  font-size: 23px;
   line-height: 1.2;
   text-align: center;
   color: #c5b9ed;
@@ -130,7 +130,7 @@ footer {
 
 .firmaFooter {
   color: white;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .oculto {
@@ -139,4 +139,11 @@ footer {
 
 .visible {
   display: block;
+}
+
+.resultadoFinal{
+  display: block;
+  margin: 0 auto;
+  font-size: 50px;
+  margin-top: 15px;
 }
