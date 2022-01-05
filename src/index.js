@@ -1,10 +1,10 @@
 /**
- * @challenge: INTERACTUAR CON HTML
-Deberás entregar la Estructura HTML y CSS del proyecto, las variables de JS necesarias y los objetos de JS, correspondientes a la primera entrega de tu proyecto final.
+ * @challenge: INCORPORAR EVENTOS
+Con lo que vimos sobre DOM, ahora puedes sumarlo a tu proyecto, para interactuar entre los elementos HTML y JS. Es decir, asociar eventos que buscamos controlar sobre los elementos  de la interfaz de nuestro simulador
  *
- * @version : 1.7.0
+ * @version : 1.8.0
  * @author : Trinidad Margni
- * @fecha : 17/12/2021
+ * @fecha : 23/12/2021
  *
  * History:
  *  - v1.0.0 – Primera entrega de: CREAR UN ALGORITMO JS SIMPLE
@@ -18,7 +18,18 @@ Deberás entregar la Estructura HTML y CSS del proyecto, las variables de JS nec
  *  - v1.5.0 – Primera entrega de: INCORPORAR ARRAYS
  *  - v1.6.0 – Primera Entrega del Proyecto Final
  *  - v1.7.0 – Primera Entrega de Interactuar con HTML
+ *  - v1.8.0 – Primera Entrega de Incorporar Eventos
  */
+
+//--------------------- Boton Comenzar
+
+let boton = document.getElementById("boton-comenzar");
+boton.addEventListener ("click", comenzarProceso);
+
+function comenzarProceso (event) {
+  let borrarDiv = document.getElementById("presentacion");
+  borrarDiv.className = "oculto";
+}
 
 //--------------------- Proceso 
 
@@ -52,7 +63,7 @@ function opcionRecomendacion(event) {
   let titulo = document.getElementById("titulo");
 
   // Cambia el titulo:
-  titulo.innerHTML =`Proceso de generacion de outfit por recomendacion`;
+  titulo.innerHTML =`Generacion de outfit: por recomendacion`;
 
   // Remueve/oculta elementos anteriores:
   let divElement = document.getElementById("nuevas-opciones");
@@ -70,6 +81,10 @@ function botonSecundario (event) {
   let sectionPadre = document.getElementById("resultados-proceso");
   let situationSelected = document.getElementById("situation").value;
   let weatherSelected = document.getElementById("weather").value;
+  let titulo = document.getElementById("titulo");
+
+  // Cambia el titulo:
+  titulo.innerHTML =`Todo listo!`;
 
   // Remueve/oculta elementos anteriores:
   let divElement = document.getElementById("proceso-generador-dos");
