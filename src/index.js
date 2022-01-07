@@ -1,10 +1,10 @@
 /**
- * @challenge: SEGUNDA ENTREGA DEL PROYECTO FINAL
-Deberás agregar y entregar uso de JSON y Storage, y DOM y eventos del usuario, correspondientes a la segunda entrega de tu proyecto final.
+ * @challenge: INCORPORAR JQUERY AL PROYECTO
+Suma al proyecto integrador los conceptos de jQuery que vimos en las últimas dos clases.
  *
- * @version : 1.9.0
+ * @version : 1.10.0
  * @author : Trinidad Margni
- * @fecha : 28/12/2021
+ * @fecha : 07/01/2021
  *
  * History:
  *  - v1.0.0 – Primera entrega de: CREAR UN ALGORITMO JS SIMPLE
@@ -16,65 +16,62 @@ Deberás agregar y entregar uso de JSON y Storage, y DOM y eventos del usuario, 
  *  - v1.4.0 – Primera entrega de: INCORPORAR OBJETOS
  *  - v1.4.1 – Segunda entrega de: INCORPORAR OBJETOS
  *  - v1.5.0 – Primera entrega de: INCORPORAR ARRAYS
- *  - v1.6.0 – Primera Entrega del Proyecto Final
- *  - v1.7.0 – Primera Entrega de Interactuar con HTML
- *  - v1.8.0 – Primera Entrega de Incorporar Eventos
- *  - v1.9.0 – Segunda entrega del proyecto final
+ *  - v1.6.0 – Primera Entrega de: PRIMER PRE-ENTREGA DEL PROYECTO FINAL
+ *  - v1.7.0 – Primera Entrega de: INTERACTUAR CON HTML
+ *  - v1.8.0 – Primera Entrega de: INCORPORAR EVENTOS
+ *  - v1.9.0 – Primera entrega de: SEGUNDA PRE-ENTREGA DEL PROYECTO FINAL
+ *  - v1.10.0 – Primera entrega de: INCORPORAR JQUERY AL PROYECTO 
  */
 
 //--------------------- Boton Comenzar
 
-let boton = document.getElementById("boton-comenzar");
-boton.addEventListener("click", comenzarProceso);
+$(document).ready(function () {
+  console.log("El documento esta listo");
+});
 
-function comenzarProceso(event) {
-  let borrarDiv = document.getElementById("presentacion");
-  borrarDiv.className = "oculto";
-}
+$("#boton-comenzar").click(function comenzarProceso(event) {
+  $("#presentacion").hide("fast");
+});
 
 //--------------------- Proceso Inicial
 
-function bienvenida(event) {
+function bienvenidaUsuario(event) {
   event.preventDefault();
 
   // Trae los valores:
-  let padre = document.getElementById("saludar-usuario");
   let userName = document.getElementById("input-name").value;
   localStorage.setItem("Nombre", userName);
 
   // Crea un nuevo elemento:
-  let newWelcome = document.createElement("div");
-  newWelcome.className = "d-flex justify-content-center";
-  newWelcome.innerHTML = `<h2 id="titulo">Hola ${userName}, por favor define como quieres elegir tu nuevo outfit</h2>`;
-  padre.appendChild(newWelcome);
+  $("#saludar-usuario").append(`
+    <div class="d-flex justify-content-center">
+      <h2 id="titulo">Hola ${userName}, por favor define como quieres elegir tu nuevo outfit</h2>
+    </div>`);
 
   // Remueve/oculta elementos anteriores:
-  let formElement = document.getElementById("formulario-inicio");
-  formElement.parentNode.removeChild(formElement);
+  $("#formulario-inicio").hide("fast");
 
   // Muestra elementos ocultos:
-  let primerPregunta = document.getElementById("proceso-generador");
-  primerPregunta.className = "visible";
+  $("#proceso-generador").slideDown("fast");
 }
 
-function opcionRecomendacion(event) {
+let button = document.querySelector("#bienvenida");
+button.addEventListener("click", bienvenidaUsuario);
+
+//////////////
+
+$("#opcion-recomendacion").click(function recomendacionUsuario(event) {
   event.preventDefault;
 
-  // Trae los valores:
-  let padre = document.getElementById("proceso-generador");
-  let titulo = document.getElementById("titulo");
-
   // Cambia el titulo:
-  titulo.innerHTML = `Generacion de outfit: por recomendacion`;
+  $('#titulo').text(`Generacion de outfit: por recomendacion`);
 
   // Remueve/oculta elementos anteriores:
-  let divElement = document.getElementById("nuevas-opciones");
-  divElement.parentNode.removeChild(divElement);
+  $('#proceso-generador').slideUp('fast');
 
   // Muestra elementos ocultos:
-  let segundaPregunta = document.getElementById("proceso-generador-dos");
-  segundaPregunta.className = "visible";
-}
+  $('#proceso-generador-dos').slideDown('fast');
+});
 
 //--------------------- Objetos
 
@@ -156,47 +153,48 @@ var randomPropCR =
 
 //--------------------- Condicionales / Generacion de Outfit
 
-function botonSecundario(event) {
+$('#boton-secundario').click(function botonSecundario(event) {
   event.preventDefault();
 
   // Trae los valores:
-  let sectionPadre = document.getElementById("resultados-proceso");
   let situationSelected = document.getElementById("situation").value;
   let weatherSelected = document.getElementById("weather").value;
-  let titulo = document.getElementById("titulo");
 
   // Cambia el titulo:
-  titulo.innerHTML = `Todo listo!`;
+  $('#titulo').text(`Todo listo!`);
 
   // Remueve/oculta elementos anteriores:
-  let divElement = document.getElementById("proceso-generador-dos");
-  divElement.parentNode.removeChild(divElement);
+  $("#proceso-generador-dos").hide('fast');
 
   // Crea un nuevo elemento:
-  let newResult = document.createElement("div");
-  newResult.className =
-    "d-flex justify-content-center align-items-center flex-column resultados";
-  newResult.innerHTML = `<p>Has elegido una situacion de ${situationSelected} en un clima de ${weatherSelected}. A continuacion podras vislumbrar tu nuevo outfit</p> <div id="bloque-outfit")></div>`;
-  sectionPadre.appendChild(newResult);
-  
+
+  $('#resultados-proceso').append(`
+  <div class="d-flex justify-content-center align-items-center flex-column resultados">
+  <p>Has elegido una situacion de ${situationSelected} en un clima de ${weatherSelected}. A continuacion podras vislumbrar tu nuevo outfit</p> 
+  <div id="bloque-outfit")>
+  </div>
+  </div>`
+  )
+
   // Genera el outfit:
 
   if (weatherSelected === "calido" && situationSelected === "romance") {
-    let padreDos = document.getElementById("bloque-outfit");
-    newOutfitResult = document.createElement("div");
-    newOutfitResult.className =
-    "resultadoFinal"
-    newOutfitResult.innerHTML = `<h2>Tu outfit sera ${randomTopCR}, ${randomBottomCR} y ${randomShoesCR}. Acompañando con ${randomPropCR}</h2>`
-    padreDos.appendChild(newOutfitResult);
+    $('#bloque-outfit').append(`
+    <div class="resultadoFinal">
+    <h2>Tu outfit sera ${randomTopCR}, ${randomBottomCR} y ${randomShoesCR}. Acompañando con ${randomPropCR}</h2>
+    </div>
+    `
+    )
+    
   } else {
-    let padreDos = document.getElementById("bloque-outfit");
-    newOutfitResult = document.createElement("div");
-    newOutfitResult.className =
-    "resultadoFinal"
-    newOutfitResult.innerHTML = `<h2>Lo lamento, debido a un error interno no hemos podido encontrar un match. Intenta nuevamente</h2>`
-    padreDos.appendChild(newOutfitResult);
-   }
-   localStorage.setItem("Outfit", JSON.stringify(newOutfitResult.innerHTML))
-}
+    $('#bloque-outfit').append(`
+    <div class="resultadoFinal">
+    <h2>Lo lamento, debido a un error interno no hemos podido encontrar un match. Intenta nuevamente</h2>
+    </div>
+    `
+    )
+  }
+  /* localStorage.setItem("Outfit", JSON.stringify(newOutfitResult.innerHTML)); */
+});
 
 // Para la próxima entrega agregaré una sección de outfits anteriores y profundizaré el Local Storage y JSON

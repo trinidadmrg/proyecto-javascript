@@ -67,19 +67,19 @@
           <button
             type="submit"
             class="botonSecundario"
-            onclick="bienvenida(event)"
+            id="bienvenida"
           >
             Enviar
           </button>
         </form>
       </section>
       <section class="oculto" id="proceso-generador">
-        <div class="d-flex justify-content-center align-items-center flex-column" id="nuevas-opciones">
+        <div class="d-flex justify-content-center align-items-center flex-column">
         <h2>¿Cómo prefieres elegir?</h2>
         <button type="button" class="opcionUno" id="p1-oA">
           En base a una prenda que tengo
         </button>
-        <button type="button" class="opcionDos" onclick="opcionRecomendacion(event)">
+        <button type="button" class="opcionDos" id="opcion-recomendacion">
           En base a lo que recomienden
         </button>
       </div>
@@ -101,7 +101,7 @@
             <option value="templado">Templado</option>
             <option value="frio">Frio</option>
           </select>
-          <button class="botonSecundario" type="button" onclick="botonSecundario(event)">Enviar</button>
+          <button class="botonSecundario" type="button" id="boton-secundario">Enviar</button>
         </form>
       </section>
       <section id="resultados-proceso">
@@ -136,5 +136,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="src/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   </body>
 </html>
