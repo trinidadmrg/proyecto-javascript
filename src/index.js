@@ -2,7 +2,7 @@
  * @challenge: INCORPORAR JQUERY AL PROYECTO
 Suma al proyecto integrador los conceptos de jQuery que vimos en las últimas dos clases.
  *
- * @version : 1.10.0
+ * @version : 1.11.0
  * @author : Trinidad Margni
  * @fecha : 07/01/2021
  *
@@ -64,13 +64,13 @@ $("#opcion-recomendacion").click(function recomendacionUsuario(event) {
   event.preventDefault;
 
   // Cambia el titulo:
-  $('#titulo').text(`Generacion de outfit: por recomendacion`);
+  $("#titulo").text(`Generacion de outfit: por recomendacion`);
 
   // Remueve/oculta elementos anteriores:
-  $('#proceso-generador').slideUp('fast');
+  $("#proceso-generador").slideUp("fast");
 
   // Muestra elementos ocultos:
-  $('#proceso-generador-dos').slideDown('fast');
+  $("#proceso-generador-dos").slideDown("fast");
 });
 
 //--------------------- Objetos
@@ -96,6 +96,18 @@ const prendasRopa = [
   },
   {
     nombre: "zapatos de tacon",
+    tipo: "calzados",
+    clima: "calido",
+    ocasion: "romance",
+  },
+  {
+    nombre: "patines",
+    tipo: "calzados",
+    clima: "calido",
+    ocasion: "romance",
+  },
+  {
+    nombre: "ojotas",
     tipo: "calzados",
     clima: "calido",
     ocasion: "romance",
@@ -153,7 +165,7 @@ var randomPropCR =
 
 //--------------------- Condicionales / Generacion de Outfit
 
-$('#boton-secundario').click(function botonSecundario(event) {
+$("#boton-secundario").click(function botonSecundario(event) {
   event.preventDefault();
 
   // Trae los valores:
@@ -161,40 +173,90 @@ $('#boton-secundario').click(function botonSecundario(event) {
   let weatherSelected = document.getElementById("weather").value;
 
   // Cambia el titulo:
-  $('#titulo').text(`Todo listo!`);
+  $("#titulo").text(`Todo listo!`);
 
   // Remueve/oculta elementos anteriores:
-  $("#proceso-generador-dos").hide('fast');
+  $("#proceso-generador-dos").hide("fast");
 
   // Crea un nuevo elemento:
 
-  $('#resultados-proceso').append(`
+  $("#resultados-proceso").append(`
   <div class="d-flex justify-content-center align-items-center flex-column resultados">
   <p>Has elegido una situacion de ${situationSelected} en un clima de ${weatherSelected}. A continuacion podras vislumbrar tu nuevo outfit</p> 
   <div id="bloque-outfit")>
   </div>
-  </div>`
-  )
+  </div>`);
 
   // Genera el outfit:
 
   if (weatherSelected === "calido" && situationSelected === "romance") {
-    $('#bloque-outfit').append(`
+    $("#bloque-outfit").append(`
     <div class="resultadoFinal">
     <h2>Tu outfit sera ${randomTopCR}, ${randomBottomCR} y ${randomShoesCR}. Acompañando con ${randomPropCR}</h2>
     </div>
-    `
-    )
-    
+    `);
+
+    let outfitActual = {
+      randomTopCR,
+      randomBottomCR,
+      randomShoesCR,
+      randomPropCR,
+    };
+    let existenOutfitsAnteriores = localStorage.getItem("outfitsAnteriores");
+
+    if (existenOutfitsAnteriores !== null) {
+      let outfitsAnteriores = JSON.parse(
+        localStorage.getItem("outfitsAnteriores")
+      );
+      outfitsAnteriores.unshift(outfitActual);
+      localStorage.setItem(
+        "outfitsAnteriores",
+        JSON.stringify(outfitsAnteriores)
+      );
+    } else {
+      let outfitsAnteriores = [];
+      outfitsAnteriores.unshift(outfitActual);
+      localStorage.setItem(
+        "outfitsAnteriores",
+        JSON.stringify(outfitsAnteriores)
+      );
+    }
+
+    generarUltimoOutfit(outfitActual);
   } else {
-    $('#bloque-outfit').append(`
+    $("#bloque-outfit").append(`
     <div class="resultadoFinal">
     <h2>Lo lamento, debido a un error interno no hemos podido encontrar un match. Intenta nuevamente</h2>
     </div>
-    `
-    )
+    `);
   }
-  /* localStorage.setItem("Outfit", JSON.stringify(newOutfitResult.innerHTML)); */
 });
 
-// Para la próxima entrega agregaré una sección de outfits anteriores y profundizaré el Local Storage y JSON
+// Outfits anteriores:
+
+generarOutfits();
+
+function generarUltimoOutfit (outfit) {
+  $("#lista-outfits-anteriores").prepend(`
+  <li>
+    Outfit: ${outfit.randomTopCR} +  ${outfit.randomBottomCR} + ${outfit.randomShoesCR} + ${outfit.randomPropCR}
+  </li>
+`);
+}
+
+function generarOutfits(event) {
+  const outfitsAnteriores = JSON.parse(
+    localStorage.getItem("outfitsAnteriores")
+  );
+  outfitsAnteriores.forEach((outfit) => {
+    $("#lista-outfits-anteriores").append(`
+    <li>
+      Outfit: ${outfit.randomTopCR} +  ${outfit.randomBottomCR} + ${outfit.randomShoesCR} + ${outfit.randomPropCR}
+    </li>
+  `);
+  });
+}
+
+$("#boton-outfits-anteriores").click(function () {
+  $("#outfits-anteriores").slideDown("fast");
+});
