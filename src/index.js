@@ -1304,6 +1304,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${warmRomanticTopRandom} with ${warmRomanticBottomRandom} and ${warmRomanticShoesRandom}. Accompanying with ${warmRomanticPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${warmRomanticTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmRomanticBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmRomanticShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmRomanticPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1330,6 +1336,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${warmFriendsTopRandom} with ${warmFriendsBottomRandom} and ${warmFriendsShoesRandom}. Accompanying with ${warmFriendsPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${warmFriendsTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmFriendsBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmFriendsShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmFriendsPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1356,6 +1368,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${warmClubTopRandom} with ${warmClubBottomRandom} and ${warmClubShoesRandom}. Accompanying with ${warmClubPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${warmClubTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmClubBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmClubShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmClubPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1382,6 +1400,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${warmFamilyTopRandom} with ${warmFamilyBottomRandom} and ${warmFamilyShoesRandom}. Accompanying with ${warmFamilyPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${warmFamilyTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmFamilyBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmFamilyShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmFamilyPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1408,6 +1432,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${warmBusinessTopRandom} with ${warmBusinessBottomRandom} and ${warmBusinessShoesRandom}. Accompanying with ${warmBusinessPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${warmBusinessTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmBusinessBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmBusinessShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmBusinessPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1434,6 +1464,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${warmBarTopRandom} with ${warmBarBottomRandom} and ${warmBarShoesRandom}. Accompanying with ${warmBarPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${warmBarTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmBarBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmBarShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${warmBarPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1460,6 +1496,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${mildRomanticTopRandom} with ${mildRomanticBottomRandom} and ${mildRomanticShoesRandom}. Accompanying with ${mildRomanticPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${mildRomanticTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildRomanticBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildRomanticShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildRomanticPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1486,6 +1528,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${mildFriendsTopRandom} with ${mildFriendsBottomRandom} and ${mildFriendsShoesRandom}. Accompanying with ${mildFriendsPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${mildFriendsTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildFriendsBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildFriendsShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildFriendsPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1512,6 +1560,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${mildClubTopRandom} with ${mildClubBottomRandom} and ${mildClubShoesRandom}. Accompanying with ${mildClubPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${mildClubTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildClubBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildClubShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildClubPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1538,6 +1592,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${mildFamilyTopRandom} with ${mildFamilyBottomRandom} and ${mildFamilyShoesRandom}. Accompanying with ${mildFamilyPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${mildFamilyTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildFamilyBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildFamilyShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildFamilyPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1564,6 +1624,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${mildBusinessTopRandom} with ${mildBusinessBottomRandom} and ${mildBusinessShoesRandom}. Accompanying with ${mildBusinessPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${mildBusinessTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildBusinessBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildBusinessShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildBusinessPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1590,6 +1656,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${mildBarTopRandom} with ${mildBarBottomRandom} and ${mildBarShoesRandom}. Accompanying with ${mildBarPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${mildBarTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildBarBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildBarShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${mildBarPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1616,6 +1688,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${coldRomanticTopRandom} with ${coldRomanticBottomRandom} and ${coldRomanticShoesRandom}. Accompanying with ${coldRomanticPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${coldRomanticTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldRomanticBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldRomanticShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldRomanticPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1642,6 +1720,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${coldFriendsTopRandom} with ${coldFriendsBottomRandom} and ${coldFriendsShoesRandom}. Accompanying with ${coldFriendsPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${coldFriendsTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldFriendsBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldFriendsShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldFriendsPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1668,6 +1752,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${coldClubTopRandom} with ${coldClubBottomRandom} and ${coldClubShoesRandom}. Accompanying with ${coldClubPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${coldClubTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldClubBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldClubShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldClubPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1694,6 +1784,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${coldFamilyTopRandom} with ${coldFamilyBottomRandom} and ${coldFamilyShoesRandom}. Accompanying with ${coldFamilyPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${coldFamilyTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldFamilyBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldFamilyShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldFamilyPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1720,6 +1816,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${coldBusinessTopRandom} with ${coldBusinessBottomRandom} and ${coldBusinessShoesRandom}. Accompanying with ${coldBusinessPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${coldBusinessTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldBusinessBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldBusinessShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldBusinessPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
@@ -1746,6 +1848,12 @@ $("#secondary-button").click(function botonSecundario(event) {
     $("#outfit-block").append(`
     <div class="finalResult">
     <h2>Your outfit is going to be ${coldBarTopRandom} with ${coldBarBottomRandom} and ${coldBarShoesRandom}. Accompanying with ${coldBarPropRandom}</h2>
+      <div class="outfitImages">
+        <img class="clothes" src="/img/${coldBarTopRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldBarBottomRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldBarShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldBarPropRandom}.jpg"/>
+      </div>
     </div>
     `);
 
