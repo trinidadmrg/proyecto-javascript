@@ -17,7 +17,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/styles.css" />
-    <title>Generador de Outfits</title>
+    <title>Outfit Generator</title>
   </head>
   <body>
     <div class="pos-f-t">
@@ -40,85 +40,99 @@
         </button>
       </nav>
     </div>
-    <div class="divGrande">
-      <section class="visible" id="presentacion">
-        <h1>Generador de Outfits</h1>
+    <div class="bigDiv">
+      <section class="visible" id="presentation">
+        <h1>Outfit Generator</h1>
         <p>
-          Una sencilla y rápida calculadora de outfits que te ayudará a elegir
-          que usar, considerando el tipo de evento social, las condiciones
-          climaticas, tus preferncias personales y lo que ya tienes en tu
-          armario
+          A simple and quick outfit calculator that will help you choose what to
+          wear, considering the type of social event, the weather conditions,
+          your personal preferences and what you already have in your closet
         </p>
-        <button class="botonPrincipal" id="boton-comenzar">¡Empecemos!</button>
+        <button class="mainButton" id="initialize-button">
+          Let's get started!
+        </button>
+        <button class="mainButton hidden" type="button" id="new-outfit-button">
+          New Outfit
+        </button>
         <video src="/video/videoMain.mp4" controls></video>
       </section>
       <section
         class="d-flex justify-content-center align-items-center"
-        id="saludar-usuario"
+        id="hello-user"
       >
-        <form id="formulario-inicio">
-          <h2>¿Cual es tu nombre?</h2>
-          <input
-            type="text"
-            class="inputsGenerales"
-            placeholder="Ingresa tu nombre"
-            id="input-name"
-          />
-          <button
-            type="submit"
-            class="botonSecundario"
-            id="bienvenida"
+        <form id="form-name" class="hidden">
+          <div
+            class="d-flex justify-content-center flex-column align-items-center"
           >
-            Enviar
+            <h2>What is your name?</h2>
+            <input
+              type="text"
+              class="generalInputs"
+              placeholder="Type your name here"
+              id="input-name"
+            />
+            <button type="submit" class="secondaryButtons" id="send-new-user">
+              Enviar
+            </button>
+          </div>
+        </form>
+      </section>
+      <section class="hidden" id="generator-process">
+        <div
+          class="d-flex justify-content-center align-items-center flex-column"
+        >
+          <h2>How do you prefer to choose?</h2>
+          <button type="button" class="optionOne">
+            Based on a clothing that I have
+          </button>
+          <button type="button" class="optionTwo" id="recomendation-option">
+            Based on a recomendation
+          </button>
+        </div>
+      </section>
+      <section class="hidden" id="second-generator-process">
+        <form
+          class="d-flex justify-content-center align-items-center flex-column"
+        >
+          <h3>What's the occasion?</h3>
+          <select class="generalInputs" id="situation">
+            <option value="romantic">Romantic date.</option>
+            <option value="friends">Time with friends.</option>
+            <option value="club">Going to the club.</option>
+            <option value="family">Family meeting.</option>
+            <option value="business">Business situation.</option>
+            <option value="bar">Going to the bar.</option>
+          </select>
+          <h3>How's the weather temperature?</h3>
+          <select class="generalInputs" id="weather">
+            <option value="warm">The weather is warm.</option>
+            <option value="mild">The weather is mild.</option>
+            <option value="cold">The weather is cold.</option>
+          </select>
+          <button class="secondaryButtons" type="button" id="secondary-button">
+            Send
           </button>
         </form>
       </section>
-      <section class="oculto" id="proceso-generador">
-        <div class="d-flex justify-content-center align-items-center flex-column">
-        <h2>¿Cómo prefieres elegir?</h2>
-        <button type="button" class="opcionUno" id="p1-oA">
-          En base a una prenda que tengo
-        </button>
-        <button type="button" class="opcionDos" id="opcion-recomendacion">
-          En base a lo que recomienden
-        </button>
-      </div>
-      </section>
-      <section class="oculto" id="proceso-generador-dos">
-        <form class="d-flex justify-content-center align-items-center flex-column">
-          <h3>¿Cual es la ocasion?</h3>
-          <select class="inputsGenerales" id="situation">
-            <option value="romance">Romance</option>
-            <option value="amistad">Amistad</option>
-            <option value="club">Club</option>
-            <option value="familia">Familia</option>
-            <option value="laboral">Laboral</option>
-            <option value="bar">Bar</option>
-          </select>
-          <h3>¿Cual es el clima?</h3>
-          <select class="inputsGenerales" id="weather">
-            <option value="calido">Calido</option>
-            <option value="templado">Templado</option>
-            <option value="frio">Frio</option>
-          </select>
-          <button class="botonSecundario" type="button" id="boton-secundario">Enviar</button>
-        </form>
-      </section>
-      <section id="resultados-proceso">
-      </section>
+      <section id="process-results"></section>
       <section>
-        <button class="botonSecundario" type="button" id="boton-outfits-anteriores">Mis outfits anteriores</button>
-        <div class="oculto" id="outfits-anteriores">
-          <ol id="lista-outfits-anteriores">
-          </ol>
+        <button
+          class="secondaryButtons"
+          type="button"
+          id="previous-outfits-button"
+        >
+          Previous Outfits
+        </button>
+        <div class="hidden" id="previous-outfits">
+          <ol id="previous-outfits-list"></ol>
         </div>
       </section>
     </div>
     <footer>
       <a href="https://www.trinidadmargni.com/" target="0_Blank"
-        ><p class="firmaFooter">www.trinidadmargni.com</p></a
+        ><p class="footerSigns">www.trinidadmargni.com</p></a
       >
-      <p class="firmaFooter">
+      <p class="footerSigns">
         Copyright © 2022 TRINIDAD MARGNI. <br />
         All Rights Reserved.<br />
         Made with love ❤️ from Argentina
@@ -140,6 +154,10 @@
       crossorigin="anonymous"
     ></script>
     <script src="src/index.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

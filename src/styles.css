@@ -19,7 +19,7 @@ a:hover {
   box-shadow: 0 4px 2px -2px gray;
 }
 
-.divGrande {
+.bigDiv {
   display: block;
   background-color: white;
   border: none;
@@ -30,6 +30,7 @@ a:hover {
   box-shadow: 0px 8px 10px grey;
   padding: 20px;
 }
+
 section {
   padding-bottom: 15px;
 }
@@ -55,7 +56,7 @@ p {
   color: #c5b9ed;
 }
 
-.botonPrincipal {
+.mainButton {
   display: block;
   margin: 0 auto;
   background-color: #f5b19f;
@@ -67,12 +68,12 @@ p {
   margin-bottom: 10px;
 }
 
-.botonPrincipal:hover {
+.mainButton:hover {
   background-color: white;
   color: #f5b19f;
 }
 
-.botonSecundario {
+.secondaryButtons {
   display: block;
   margin: 0 auto;
   background-color: #c5b9ed;
@@ -84,12 +85,12 @@ p {
   margin-bottom: 10px;
 }
 
-.botonSecundario:hover {
+.secondaryButtons:hover {
   background-color: white;
   color: #c5b9ed;
 }
 
-.inputsGenerales {
+.generalInputs {
   margin: 10px;
   border-radius: 10px;
   text-align: center;
@@ -101,7 +102,7 @@ video {
   box-shadow: 0px 2px 5px grey;
 }
 
-.opcionUno {
+.optionOne {
   display: block;
   margin: 0 auto;
   background-color: #c5b9ed;
@@ -113,7 +114,7 @@ video {
   margin-bottom: 10px;
 }
 
-.opcionDos {
+.optionTwo {
   display: block;
   margin: 0 auto;
   background-color: #df89a4;
@@ -132,12 +133,12 @@ footer {
   padding: 25px;
 }
 
-.firmaFooter {
+.footerSigns {
   color: white;
   font-size: 13px;
 }
 
-.oculto {
+.hidden {
   display: none;
 }
 
@@ -145,7 +146,7 @@ footer {
   display: block;
 }
 
-.resultadoFinal{
+.finalResult{
   display: block;
   margin: 0 auto;
   font-size: 50px;
