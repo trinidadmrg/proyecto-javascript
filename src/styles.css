@@ -90,6 +90,23 @@ p {
   color: #c5b9ed;
 }
 
+.terciaryButtons {
+  display: block;
+  margin: 0 auto;
+  background-color: #df89a4;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px grey;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.terciaryButtons:hover {
+  background-color: white;
+  color: #df89a4;
+}
+
 .generalInputs {
   margin: 10px;
   border-radius: 10px;
@@ -100,6 +117,8 @@ video {
   width: 95%;
   border-radius: 10px;
   box-shadow: 0px 2px 5px grey;
+  display: block;
+  margin: 40px
 }
 
 .optionOne {
@@ -184,3 +203,85 @@ h3 {
   border-radius: 20px;
   margin: 5px;
 }
+
+.navbarLink {
+  text-decoration: none;
+  color: white;
+}
+
+
+/*------ Media Queries ------*/
+
+/* Medium and Large */
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 55px;
+  }
+  
+  h2 {
+    font-size: 40px;
+  }
+  
+  p {
+    font-size: 33px;
+  }
+  
+  video {
+    width: 75%;
+  }
+
+  li {
+    font-size: 30px;
+  }
+
+  .clothes {
+    width: 20%;
+  }
+
+  .footerSigns {
+    font-size: 20px;
+  }
+
+  .mainButton {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .secondaryButtons {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .terciaryButtons {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .optionOne {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .optionTwo {
+    font-size: 20px;
+    padding: 15px;
+  }
+
+  .bigDiv {
+    width: 93%;
+  }
+
+  .generalInputs {
+    font-size: 25px;
+  }
+}
+
+/* Extra large and Extra Extra Large*/
+
+@media (min-width: 1200px) {
+  .bigDiv {
+    width: 85%;
+  }
+}
+

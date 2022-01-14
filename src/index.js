@@ -41,6 +41,7 @@ $("#send-new-user").click(function setNameAndGiveOptions(event) {
 
   // It shows hidden elements:
   $("#generator-process").slideDown("fast");
+  $("#back-to-start").show("fast");
 });
 
 //--------------------- It starts the process for existent users
@@ -64,6 +65,7 @@ $("#new-outfit-button").click(function welcomeUser(event) {
 
   // It shows hidden elements:
   $("#generator-process").slideDown("fast");
+  $("#back-to-start").show("fast");
 });
 
 //--------------------- Option: "Based on a recomendation"
@@ -1687,11 +1689,12 @@ $("#secondary-button").click(function botonSecundario(event) {
   } else if (weatherSelected === "cold" && situationSelected === "romantic") {
     $("#outfit-block").append(`
     <div class="finalResult">
-    <h2>Your outfit is going to be ${coldRomanticTopRandom} with ${coldRomanticBottomRandom} and ${coldRomanticShoesRandom}. Accompanying with ${coldRomanticPropRandom}</h2>
+    <h2>Your outfit is going to be ${coldRomanticTopRandom} with ${coldRomanticBottomRandom} and ${coldRomanticShoesRandom}. Accompanying with ${coldRomanticCoatRandom} and ${coldRomanticPropRandom}</h2>
       <div class="outfitImages">
         <img class="clothes" src="/img/${coldRomanticTopRandom}.jpg"/>
         <img class="clothes" src="/img/${coldRomanticBottomRandom}.jpg"/>
         <img class="clothes" src="/img/${coldRomanticShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldRomanticCoatRandom}.jpg"/>
         <img class="clothes" src="/img/${coldRomanticPropRandom}.jpg"/>
       </div>
     </div>
@@ -1719,11 +1722,12 @@ $("#secondary-button").click(function botonSecundario(event) {
   } else if (weatherSelected === "cold" && situationSelected === "friends") {
     $("#outfit-block").append(`
     <div class="finalResult">
-    <h2>Your outfit is going to be ${coldFriendsTopRandom} with ${coldFriendsBottomRandom} and ${coldFriendsShoesRandom}. Accompanying with ${coldFriendsPropRandom}</h2>
+    <h2>Your outfit is going to be ${coldFriendsTopRandom} with ${coldFriendsBottomRandom} and ${coldFriendsShoesRandom}. Accompanying with ${coldFriendsCoatRandom} and ${coldFriendsPropRandom}</h2>
       <div class="outfitImages">
         <img class="clothes" src="/img/${coldFriendsTopRandom}.jpg"/>
         <img class="clothes" src="/img/${coldFriendsBottomRandom}.jpg"/>
         <img class="clothes" src="/img/${coldFriendsShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldFriendsCoatRandom}.jpg"/>
         <img class="clothes" src="/img/${coldFriendsPropRandom}.jpg"/>
       </div>
     </div>
@@ -1751,11 +1755,12 @@ $("#secondary-button").click(function botonSecundario(event) {
   } else if (weatherSelected === "cold" && situationSelected === "club") {
     $("#outfit-block").append(`
     <div class="finalResult">
-    <h2>Your outfit is going to be ${coldClubTopRandom} with ${coldClubBottomRandom} and ${coldClubShoesRandom}. Accompanying with ${coldClubPropRandom}</h2>
+    <h2>Your outfit is going to be ${coldClubTopRandom} with ${coldClubBottomRandom} and ${coldClubShoesRandom}. Accompanying with ${coldClubCoatRandom} and ${coldClubPropRandom}</h2>
       <div class="outfitImages">
         <img class="clothes" src="/img/${coldClubTopRandom}.jpg"/>
         <img class="clothes" src="/img/${coldClubBottomRandom}.jpg"/>
         <img class="clothes" src="/img/${coldClubShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldClubCoatRandom}.jpg"/>
         <img class="clothes" src="/img/${coldClubPropRandom}.jpg"/>
       </div>
     </div>
@@ -1783,11 +1788,12 @@ $("#secondary-button").click(function botonSecundario(event) {
   } else if (weatherSelected === "cold" && situationSelected === "family") {
     $("#outfit-block").append(`
     <div class="finalResult">
-    <h2>Your outfit is going to be ${coldFamilyTopRandom} with ${coldFamilyBottomRandom} and ${coldFamilyShoesRandom}. Accompanying with ${coldFamilyPropRandom}</h2>
+    <h2>Your outfit is going to be ${coldFamilyTopRandom} with ${coldFamilyBottomRandom} and ${coldFamilyShoesRandom}. Accompanying with ${coldFamilyCoatRandom} and ${coldFamilyPropRandom}</h2>
       <div class="outfitImages">
         <img class="clothes" src="/img/${coldFamilyTopRandom}.jpg"/>
         <img class="clothes" src="/img/${coldFamilyBottomRandom}.jpg"/>
         <img class="clothes" src="/img/${coldFamilyShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldFamilyCoatRandom}.jpg"/>
         <img class="clothes" src="/img/${coldFamilyPropRandom}.jpg"/>
       </div>
     </div>
@@ -1815,11 +1821,12 @@ $("#secondary-button").click(function botonSecundario(event) {
   } else if (weatherSelected === "cold" && situationSelected === "business") {
     $("#outfit-block").append(`
     <div class="finalResult">
-    <h2>Your outfit is going to be ${coldBusinessTopRandom} with ${coldBusinessBottomRandom} and ${coldBusinessShoesRandom}. Accompanying with ${coldBusinessPropRandom}</h2>
+    <h2>Your outfit is going to be ${coldBusinessTopRandom} with ${coldBusinessBottomRandom} and ${coldBusinessShoesRandom}. Accompanying with ${coldBusinessCoatRandom} and ${coldBusinessPropRandom}</h2>
       <div class="outfitImages">
         <img class="clothes" src="/img/${coldBusinessTopRandom}.jpg"/>
         <img class="clothes" src="/img/${coldBusinessBottomRandom}.jpg"/>
         <img class="clothes" src="/img/${coldBusinessShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldBusinessCoatRandom}.jpg"/>
         <img class="clothes" src="/img/${coldBusinessPropRandom}.jpg"/>
       </div>
     </div>
@@ -1847,11 +1854,12 @@ $("#secondary-button").click(function botonSecundario(event) {
   } else if (weatherSelected === "cold" && situationSelected === "bar") {
     $("#outfit-block").append(`
     <div class="finalResult">
-    <h2>Your outfit is going to be ${coldBarTopRandom} with ${coldBarBottomRandom} and ${coldBarShoesRandom}. Accompanying with ${coldBarPropRandom}</h2>
+    <h2>Your outfit is going to be ${coldBarTopRandom} with ${coldBarBottomRandom} and ${coldBarShoesRandom}. Accompanying with ${coldBarCoatRandom} and ${coldBarPropRandom}</h2>
       <div class="outfitImages">
         <img class="clothes" src="/img/${coldBarTopRandom}.jpg"/>
         <img class="clothes" src="/img/${coldBarBottomRandom}.jpg"/>
         <img class="clothes" src="/img/${coldBarShoesRandom}.jpg"/>
+        <img class="clothes" src="/img/${coldBarCoatRandom}.jpg"/>
         <img class="clothes" src="/img/${coldBarPropRandom}.jpg"/>
       </div>
     </div>
@@ -1910,4 +1918,8 @@ function generateOutfit(event) {
 
 $("#previous-outfits-button").click(function () {
   $("#previous-outfits").slideDown("fast");
+});
+
+$("#previous-outfits-hide").click(function () {
+  $("#previous-outfits").slideUp("fast");
 });

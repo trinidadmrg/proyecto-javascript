@@ -23,7 +23,9 @@
     <div class="pos-f-t">
       <div class="collapse" id="navbarToggleExternalContent">
         <div class="navbarInside p-4">
-          <h4 class="text-white">Outfit Generator</h4>
+          <h4 class="text-white">
+            <a class="navbarLink" href="index.html">Outfit Generator</a>
+          </h4>
         </div>
       </div>
       <nav class="navbar navbar-dark navbarColor">
@@ -54,7 +56,11 @@
         <button class="mainButton hidden" type="button" id="new-outfit-button">
           New Outfit
         </button>
-        <video src="/video/videoMain.mp4" controls></video>
+        <div
+          class="d-flex justify-content-center flex-column align-items-center"
+        >
+          <video src="/video/videoMain.mp4" controls></video>
+        </div>
       </section>
       <section
         class="d-flex justify-content-center align-items-center"
@@ -125,8 +131,28 @@
         </button>
         <div class="hidden" id="previous-outfits">
           <ol id="previous-outfits-list"></ol>
+          <button
+            class="secondaryButtons"
+            type="button"
+            id="previous-outfits-hide"
+          >
+            Hide
+          </button>
         </div>
       </section>
+      <div
+        class="d-flex flex-row justify-content-center align-content-center align-items-center"
+      >
+        <a href="index.html">
+          <button
+            class="terciaryButtons hidden"
+            type="button"
+            id="back-to-start"
+          >
+            Restart
+          </button>
+        </a>
+      </div>
     </div>
     <footer>
       <a href="https://www.trinidadmargni.com/" target="0_Blank"
