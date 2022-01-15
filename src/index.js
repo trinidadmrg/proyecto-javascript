@@ -83,532 +83,6 @@ $("#recomendation-option").click(function recommendToUser(event) {
   $("#second-generator-process").slideDown("fast");
 });
 
-//--------------------- Objects to generate outfits
-
-const TYPES_OF_CLOTHING = {
-  TOP: "TOP",
-  BOTTOM: "BOTTOM",
-  SHOES: "SHOES",
-  PROP: "PROP",
-  COAT: "COAT",
-};
-
-const TYPES_OF_TEMPERATURES = {
-  WARM: "WARM",
-  MILD: "MILD",
-  COLD: "COLD",
-};
-
-const TYPES_OF_OCASSIONS = {
-  ROMANTIC: "ROMANTIC",
-  FRIENDS: "FRIENDS",
-  CLUB: "CLUB",
-  FAMILY: "FAMILY",
-  BUSINESS: "BUSINESS",
-  BAR: "BAR",
-};
-
-const allClothings = [
-  {
-    name: "blouse",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.WARM, TYPES_OF_TEMPERATURES.MILD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-    ],
-  },
-  {
-    name: "short sleeve t-shirt",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.WARM, TYPES_OF_TEMPERATURES.MILD],
-    ocassion: [TYPES_OF_OCASSIONS.FRIENDS, TYPES_OF_OCASSIONS.FAMILY],
-  },
-  {
-    name: "tank top",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.WARM],
-    ocassion: [TYPES_OF_OCASSIONS.FRIENDS, TYPES_OF_OCASSIONS.FAMILY],
-  },
-  {
-    name: "sleeveless bodysuit",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.WARM, TYPES_OF_TEMPERATURES.MILD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "crop top",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.WARM],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "strapless top",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.WARM],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "strappy blouse",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.WARM],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "short-sleeved shirt",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.WARM, TYPES_OF_TEMPERATURES.MILD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-    ],
-  },
-  {
-    name: "long-sleeved shirt",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [TYPES_OF_OCASSIONS.BUSINESS],
-  },
-  {
-    name: "long-sleeved bodysuit",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "long-sleeved t-shirt",
-    type: TYPES_OF_CLOTHING.TOP,
-    weather: [TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.BAR,
-      TYPES_OF_OCASSIONS.BUSINESS,
-    ],
-  },
-  {
-    name: "skirt",
-    type: TYPES_OF_CLOTHING.BOTTOM,
-    weather: [TYPES_OF_TEMPERATURES.WARM, TYPES_OF_TEMPERATURES.MILD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.BAR,
-      TYPES_OF_OCASSIONS.BUSINESS,
-    ],
-  },
-  {
-    name: "short",
-    type: TYPES_OF_CLOTHING.BOTTOM,
-    weather: [TYPES_OF_TEMPERATURES.WARM, TYPES_OF_TEMPERATURES.MILD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "mini skirt",
-    type: TYPES_OF_CLOTHING.BOTTOM,
-    weather: [TYPES_OF_TEMPERATURES.WARM, TYPES_OF_TEMPERATURES.MILD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "bell bottom pants",
-    type: TYPES_OF_CLOTHING.BOTTOM,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "capri pants",
-    type: TYPES_OF_CLOTHING.BOTTOM,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-    ],
-  },
-  {
-    name: "skinny jeans",
-    type: TYPES_OF_CLOTHING.BOTTOM,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "palazzo pants",
-    type: TYPES_OF_CLOTHING.BOTTOM,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-    ],
-  },
-  {
-    name: "cargo pants",
-    type: TYPES_OF_CLOTHING.BOTTOM,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [TYPES_OF_OCASSIONS.FRIENDS, TYPES_OF_OCASSIONS.FAMILY],
-  },
-  {
-    name: "straight-leg pants",
-    type: TYPES_OF_CLOTHING.BOTTOM,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "basic jeans",
-    type: TYPES_OF_CLOTHING.BOTTOM,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "sweater",
-    type: TYPES_OF_CLOTHING.COAT,
-    weather: [TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "cardigan",
-    type: TYPES_OF_CLOTHING.COAT,
-    weather: [TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "montgomery",
-    type: TYPES_OF_CLOTHING.COAT,
-    weather: [TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "jacket",
-    type: TYPES_OF_CLOTHING.COAT,
-    weather: [TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [TYPES_OF_OCASSIONS.FRIENDS, TYPES_OF_OCASSIONS.FAMILY],
-  },
-  {
-    name: "leather jacket",
-    type: TYPES_OF_CLOTHING.COAT,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-      TYPES_OF_OCASSIONS.CLUB,
-    ],
-  },
-  {
-    name: "beret",
-    type: TYPES_OF_CLOTHING.PROP,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "scarf",
-    type: TYPES_OF_CLOTHING.PROP,
-    weather: [TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "earrings",
-    type: TYPES_OF_CLOTHING.PROP,
-    weather: [
-      TYPES_OF_TEMPERATURES.WARM,
-      TYPES_OF_TEMPERATURES.MILD,
-      TYPES_OF_TEMPERATURES.COLD,
-    ],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-      TYPES_OF_OCASSIONS.CLUB,
-    ],
-  },
-  {
-    name: "rings",
-    type: TYPES_OF_CLOTHING.PROP,
-    weather: [
-      TYPES_OF_TEMPERATURES.WARM,
-      TYPES_OF_TEMPERATURES.MILD,
-      TYPES_OF_TEMPERATURES.COLD,
-    ],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-      TYPES_OF_OCASSIONS.CLUB,
-    ],
-  },
-  {
-    name: "necklace",
-    type: TYPES_OF_CLOTHING.PROP,
-    weather: [
-      TYPES_OF_TEMPERATURES.WARM,
-      TYPES_OF_TEMPERATURES.MILD,
-      TYPES_OF_TEMPERATURES.COLD,
-    ],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-      TYPES_OF_OCASSIONS.CLUB,
-    ],
-  },
-  {
-    name: "belt",
-    type: TYPES_OF_CLOTHING.PROP,
-    weather: [
-      TYPES_OF_TEMPERATURES.WARM,
-      TYPES_OF_TEMPERATURES.MILD,
-      TYPES_OF_TEMPERATURES.COLD,
-    ],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-      TYPES_OF_OCASSIONS.CLUB,
-    ],
-  },
-  {
-    name: "necktie",
-    type: TYPES_OF_CLOTHING.PROP,
-    weather: [
-      TYPES_OF_TEMPERATURES.WARM,
-      TYPES_OF_TEMPERATURES.MILD,
-      TYPES_OF_TEMPERATURES.COLD,
-    ],
-    ocassion: [TYPES_OF_OCASSIONS.BUSINESS],
-  },
-  {
-    name: "cap",
-    type: TYPES_OF_CLOTHING.PROP,
-    weather: [TYPES_OF_TEMPERATURES.WARM, TYPES_OF_TEMPERATURES.MILD],
-    ocassion: [TYPES_OF_OCASSIONS.FAMILY, TYPES_OF_OCASSIONS.FRIENDS],
-  },
-  {
-    name: "hat",
-    type: TYPES_OF_CLOTHING.PROP,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-    ],
-  },
-  {
-    name: "high heel",
-    type: TYPES_OF_CLOTHING.SHOES,
-    weather: [
-      TYPES_OF_TEMPERATURES.WARM,
-      TYPES_OF_TEMPERATURES.MILD,
-      TYPES_OF_TEMPERATURES.COLD,
-    ],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "platforms",
-    type: TYPES_OF_CLOTHING.SHOES,
-    weather: [
-      TYPES_OF_TEMPERATURES.WARM,
-      TYPES_OF_TEMPERATURES.MILD,
-      TYPES_OF_TEMPERATURES.COLD,
-    ],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.BAR,
-      TYPES_OF_OCASSIONS.CLUB,
-      TYPES_OF_OCASSIONS.BUSINESS,
-    ],
-  },
-  {
-    name: "shoes",
-    type: TYPES_OF_CLOTHING.SHOES,
-    weather: [
-      TYPES_OF_TEMPERATURES.WARM,
-      TYPES_OF_TEMPERATURES.MILD,
-      TYPES_OF_TEMPERATURES.COLD,
-    ],
-    ocassion: [TYPES_OF_OCASSIONS.FRIENDS, TYPES_OF_OCASSIONS.FAMILY],
-  },
-  {
-    name: "sandals",
-    type: TYPES_OF_CLOTHING.SHOES,
-    weather: [TYPES_OF_TEMPERATURES.WARM, TYPES_OF_TEMPERATURES.MILD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-    ],
-  },
-  {
-    name: "espadrilles",
-    type: TYPES_OF_CLOTHING.SHOES,
-    weather: [TYPES_OF_TEMPERATURES.WARM, TYPES_OF_TEMPERATURES.MILD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-    ],
-  },
-  {
-    name: "boots",
-    type: TYPES_OF_CLOTHING.SHOES,
-    weather: [TYPES_OF_TEMPERATURES.MILD, TYPES_OF_TEMPERATURES.COLD],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-      TYPES_OF_OCASSIONS.CLUB,
-    ],
-  },
-  {
-    name: "ankle boots",
-    type: TYPES_OF_CLOTHING.SHOES,
-    weather: [
-      TYPES_OF_TEMPERATURES.WARM,
-      TYPES_OF_TEMPERATURES.MILD,
-      TYPES_OF_TEMPERATURES.COLD,
-    ],
-    ocassion: [
-      TYPES_OF_OCASSIONS.ROMANTIC,
-      TYPES_OF_OCASSIONS.FRIENDS,
-      TYPES_OF_OCASSIONS.FAMILY,
-      TYPES_OF_OCASSIONS.BUSINESS,
-      TYPES_OF_OCASSIONS.BAR,
-      TYPES_OF_OCASSIONS.CLUB,
-    ],
-  },
-  {
-    name: "flip flops",
-    type: TYPES_OF_CLOTHING.SHOES,
-    weather: [TYPES_OF_TEMPERATURES.WARM],
-    ocassion: [TYPES_OF_OCASSIONS.FRIENDS, TYPES_OF_OCASSIONS.FAMILY],
-  },
-  {
-    name: "loafers",
-    type: TYPES_OF_CLOTHING.SHOES,
-    weather: [
-      TYPES_OF_TEMPERATURES.WARM,
-      TYPES_OF_TEMPERATURES.MILD,
-      TYPES_OF_TEMPERATURES.COLD,
-    ],
-    ocassion: [TYPES_OF_OCASSIONS.ROMANTIC, TYPES_OF_OCASSIONS.BUSINESS],
-  },
-];
-
 //--------------------- Filters, maps and randoms to provide a result
 
 function returnRandomName(mapa) {
@@ -616,33 +90,37 @@ function returnRandomName(mapa) {
   return someClothing.name;
 }
 
+function getClothingByCaracteristics(weather, ocassion, type) {
+  return allClothings.filter(
+    (clothing) =>
+      clothing.weather.includes(weather) &&
+      clothing.ocassion.includes(ocassion) &&
+      clothing.type === type
+  );
+}
+
 // WARM / ROMANTIC
 
-const warmRomanticTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const warmRomanticTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.TOP
 );
-const warmRomanticBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const warmRomanticBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const warmRomanticShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const warmRomanticShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.SHOES
 );
-const warmRomanticProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const warmRomanticProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const warmRomanticTopRandom = returnRandomName(warmRomanticTop);
 const warmRomanticBottomRandom = returnRandomName(warmRomanticBottom);
 const warmRomanticShoesRandom = returnRandomName(warmRomanticShoes);
@@ -650,31 +128,26 @@ const warmRomanticPropRandom = returnRandomName(warmRomanticProp);
 
 // WARM / FRIENDS
 
-const warmFriendsTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const warmFriendsTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.TOP
 );
-const warmFriendsBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const warmFriendsBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const warmFriendsShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const warmFriendsShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.SHOES
 );
-const warmFriendsProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const warmFriendsProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const warmFriendsTopRandom = returnRandomName(warmFriendsTop);
 const warmFriendsBottomRandom = returnRandomName(warmFriendsBottom);
 const warmFriendsShoesRandom = returnRandomName(warmFriendsShoes);
@@ -682,31 +155,26 @@ const warmFriendsPropRandom = returnRandomName(warmFriendsProp);
 
 // WARM / CLUB
 
-const warmClubTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const warmClubTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.TOP
 );
-const warmClubBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const warmClubBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const warmClubShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const warmClubShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.SHOES
 );
-const warmClubProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const warmClubProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const warmClubTopRandom = returnRandomName(warmClubTop);
 const warmClubBottomRandom = returnRandomName(warmClubBottom);
 const warmClubShoesRandom = returnRandomName(warmClubShoes);
@@ -714,31 +182,26 @@ const warmClubPropRandom = returnRandomName(warmClubProp);
 
 // WARM / FAMILY
 
-const warmFamilyTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const warmFamilyTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.FAMILY,
+  TYPES_OF_CLOTHING.TOP
 );
-const warmFamilyBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const warmFamilyBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.FAMILY,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const warmFamilyShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const warmFamilyShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.FAMILY,
+  TYPES_OF_CLOTHING.SHOES
 );
-const warmFamilyProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const warmFamilyProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.FAMILY,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const warmFamilyTopRandom = returnRandomName(warmFamilyTop);
 const warmFamilyBottomRandom = returnRandomName(warmFamilyBottom);
 const warmFamilyShoesRandom = returnRandomName(warmFamilyShoes);
@@ -746,31 +209,26 @@ const warmFamilyPropRandom = returnRandomName(warmFamilyProp);
 
 // WARM / BUSINESS
 
-const warmBusinessTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const warmBusinessTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.TOP
 );
-const warmBusinessBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const warmBusinessBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const warmBusinessShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const warmBusinessShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.SHOES
 );
-const warmBusinessProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const warmBusinessProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const warmBusinessTopRandom = returnRandomName(warmBusinessTop);
 const warmBusinessBottomRandom = returnRandomName(warmBusinessBottom);
 const warmBusinessShoesRandom = returnRandomName(warmBusinessShoes);
@@ -778,31 +236,26 @@ const warmBusinessPropRandom = returnRandomName(warmBusinessProp);
 
 // WARM / BAR
 
-const warmBarTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const warmBarTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.TOP
 );
-const warmBarBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const warmBarBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const warmBarShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const warmBarShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.SHOES
 );
-const warmBarProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.WARM) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const warmBarProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.WARM,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const warmBarTopRandom = returnRandomName(warmBarTop);
 const warmBarBottomRandom = returnRandomName(warmBarBottom);
 const warmBarShoesRandom = returnRandomName(warmBarShoes);
@@ -810,37 +263,31 @@ const warmBarPropRandom = returnRandomName(warmBarProp);
 
 // MILD / ROMANTIC
 
-const mildRomanticTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const mildRomanticTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.TOP
 );
-const mildRomanticBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const mildRomanticBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const mildRomanticShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const mildRomanticShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.SHOES
 );
-const mildRomanticCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const mildRomanticCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.COAT
 );
-const mildRomanticProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const mildRomanticProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const mildRomanticTopRandom = returnRandomName(mildRomanticTop);
 const mildRomanticBottomRandom = returnRandomName(mildRomanticBottom);
 const mildRomanticShoesRandom = returnRandomName(mildRomanticShoes);
@@ -849,37 +296,31 @@ const mildRomanticPropRandom = returnRandomName(mildRomanticProp);
 
 // MILD / FRIENDS
 
-const mildFriendsTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const mildFriendsTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.TOP
 );
-const mildFriendsBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const mildFriendsBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const mildFriendsShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const mildFriendsShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.SHOES
 );
-const mildFriendsCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const mildFriendsCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.COAT
 );
-const mildFriendsProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const mildFriendsProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const mildFriendsTopRandom = returnRandomName(mildFriendsTop);
 const mildFriendsBottomRandom = returnRandomName(mildFriendsBottom);
 const mildFriendsShoesRandom = returnRandomName(mildFriendsShoes);
@@ -888,37 +329,31 @@ const mildFriendsPropRandom = returnRandomName(mildFriendsProp);
 
 // MILD / CLUB
 
-const mildClubTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const mildClubTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.TOP
 );
-const mildClubBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const mildClubBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const mildClubShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const mildClubShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.SHOES
 );
-const mildClubCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const mildClubCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.COAT
 );
-const mildClubProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const mildClubProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const mildClubTopRandom = returnRandomName(mildClubTop);
 const mildClubBottomRandom = returnRandomName(mildClubBottom);
 const mildClubShoesRandom = returnRandomName(mildClubShoes);
@@ -927,37 +362,31 @@ const mildClubPropRandom = returnRandomName(mildClubProp);
 
 // MILD / FAMILY
 
-const mildFamilyTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const mildFamilyTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.TOP
 );
-const mildFamilyBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const mildFamilyBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const mildFamilyShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const mildFamilyShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.SHOES
 );
-const mildFamilyCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const mildFamilyCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.COAT
 );
-const mildFamilyProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const mildFamilyProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const mildFamilyTopRandom = returnRandomName(mildFamilyTop);
 const mildFamilyBottomRandom = returnRandomName(mildFamilyBottom);
 const mildFamilyShoesRandom = returnRandomName(mildFamilyShoes);
@@ -966,37 +395,31 @@ const mildFamilyPropRandom = returnRandomName(mildFamilyProp);
 
 // MILD / BUSINESS
 
-const mildBusinessTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const mildBusinessTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.TOP
 );
-const mildBusinessBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const mildBusinessBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const mildBusinessShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const mildBusinessShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.SHOES
 );
-const mildBusinessCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const mildBusinessCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.COAT
 );
-const mildBusinessProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const mildBusinessProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const mildBusinessTopRandom = returnRandomName(mildBusinessTop);
 const mildBusinessBottomRandom = returnRandomName(mildBusinessBottom);
 const mildBusinessShoesRandom = returnRandomName(mildBusinessShoes);
@@ -1005,37 +428,31 @@ const mildBusinessPropRandom = returnRandomName(mildBusinessProp);
 
 // MILD / BAR
 
-const mildBarTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const mildBarTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.TOP
 );
-const mildBarBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const mildBarBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const mildBarShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const mildBarShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.SHOES
 );
-const mildBarCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const mildBarCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.COAT
 );
-const mildBarProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.MILD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const mildBarProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.MILD,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const mildBarTopRandom = returnRandomName(mildBarTop);
 const mildBarBottomRandom = returnRandomName(mildBarBottom);
 const mildBarShoesRandom = returnRandomName(mildBarShoes);
@@ -1044,37 +461,31 @@ const mildBarPropRandom = returnRandomName(mildBarProp);
 
 // COLD / ROMANTIC
 
-const coldRomanticTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const coldRomanticTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.TOP
 );
-const coldRomanticBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const coldRomanticBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const coldRomanticShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const coldRomanticShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.SHOES
 );
-const coldRomanticCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const coldRomanticCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.COAT
 );
-const coldRomanticProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.ROMANTIC) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const coldRomanticProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.ROMANTIC,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const coldRomanticTopRandom = returnRandomName(coldRomanticTop);
 const coldRomanticBottomRandom = returnRandomName(coldRomanticBottom);
 const coldRomanticShoesRandom = returnRandomName(coldRomanticShoes);
@@ -1083,37 +494,31 @@ const coldRomanticPropRandom = returnRandomName(coldRomanticProp);
 
 // COLD / FRIENDS
 
-const coldFriendsTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const coldFriendsTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.TOP
 );
-const coldFriendsBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const coldFriendsBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const coldFriendsShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const coldFriendsShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.SHOES
 );
-const coldFriendsCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const coldFriendsCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.COAT
 );
-const coldFriendsProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FRIENDS) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const coldFriendsProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.FRIENDS,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const coldFriendsTopRandom = returnRandomName(coldFriendsTop);
 const coldFriendsBottomRandom = returnRandomName(coldFriendsBottom);
 const coldFriendsShoesRandom = returnRandomName(coldFriendsShoes);
@@ -1122,37 +527,31 @@ const coldFriendsPropRandom = returnRandomName(coldFriendsProp);
 
 // COLD / CLUB
 
-const coldClubTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const coldClubTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.TOP
 );
-const coldClubBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const coldClubBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const coldClubShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const coldClubShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.SHOES
 );
-const coldClubCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const coldClubCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.COAT
 );
-const coldClubProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.CLUB) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const coldClubProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.CLUB,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const coldClubTopRandom = returnRandomName(coldClubTop);
 const coldClubBottomRandom = returnRandomName(coldClubBottom);
 const coldClubShoesRandom = returnRandomName(coldClubShoes);
@@ -1161,37 +560,31 @@ const coldClubPropRandom = returnRandomName(coldClubProp);
 
 // COLD / FAMILY
 
-const coldFamilyTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const coldFamilyTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.FAMILY,
+  TYPES_OF_CLOTHING.TOP
 );
-const coldFamilyBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const coldFamilyBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.FAMILY,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const coldFamilyShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const coldFamilyShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.FAMILY,
+  TYPES_OF_CLOTHING.SHOES
 );
-const coldFamilyCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const coldFamilyCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.FAMILY,
+  TYPES_OF_CLOTHING.COAT
 );
-const coldFamilyProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.FAMILY) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const coldFamilyProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.FAMILY,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const coldFamilyTopRandom = returnRandomName(coldFamilyTop);
 const coldFamilyBottomRandom = returnRandomName(coldFamilyBottom);
 const coldFamilyShoesRandom = returnRandomName(coldFamilyShoes);
@@ -1200,37 +593,31 @@ const coldFamilyPropRandom = returnRandomName(coldFamilyProp);
 
 // COLD / BUSINESS
 
-const coldBusinessTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const coldBusinessTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.TOP
 );
-const coldBusinessBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const coldBusinessBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const coldBusinessShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const coldBusinessShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.SHOES
 );
-const coldBusinessCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const coldBusinessCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.COAT
 );
-const coldBusinessProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BUSINESS) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const coldBusinessProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.BUSINESS,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const coldBusinessTopRandom = returnRandomName(coldBusinessTop);
 const coldBusinessBottomRandom = returnRandomName(coldBusinessBottom);
 const coldBusinessShoesRandom = returnRandomName(coldBusinessShoes);
@@ -1239,37 +626,31 @@ const coldBusinessPropRandom = returnRandomName(coldBusinessProp);
 
 // COLD / BAR
 
-const coldBarTop = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.TOP
+const coldBarTop = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.TOP
 );
-const coldBarBottom = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.BOTTOM
+const coldBarBottom = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.BOTTOM
 );
-const coldBarShoes = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.SHOES
+const coldBarShoes = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.SHOES
 );
-const coldBarCoat = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.COAT
+const coldBarCoat = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.COAT
 );
-const coldBarProp = allClothings.filter(
-  (clothing) =>
-    clothing.weather.includes(TYPES_OF_TEMPERATURES.COLD) &&
-    clothing.ocassion.includes(TYPES_OF_OCASSIONS.BAR) &&
-    clothing.type === TYPES_OF_CLOTHING.PROP
+const coldBarProp = getClothingByCaracteristics(
+  TYPES_OF_TEMPERATURES.COLD,
+  TYPES_OF_OCASSIONS.BAR,
+  TYPES_OF_CLOTHING.PROP
 );
-
 const coldBarTopRandom = returnRandomName(coldBarTop);
 const coldBarBottomRandom = returnRandomName(coldBarBottom);
 const coldBarShoesRandom = returnRandomName(coldBarShoes);
@@ -1302,588 +683,182 @@ $("#secondary-button").click(function botonSecundario(event) {
 
   //--------------------- It gives you back the outfit
 
-  if (weatherSelected === "warm" && situationSelected === "romantic") {
+  function showRecommendedOutfit(top, bottom, shoes, prop, coat) {
     $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${warmRomanticTopRandom} with ${warmRomanticBottomRandom} and ${warmRomanticShoesRandom}. Accompanying with ${warmRomanticPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${warmRomanticTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmRomanticBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmRomanticShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmRomanticPropRandom}.jpg"/>
+      <div class="finalResult">
+      <h2>Your outfit is going to be ${top} with ${bottom} and ${shoes}. Accompanying with ${prop}${coat === undefined ? "." : ` and ${coat}`}</h2>
+        <div class="outfitImages">
+          <img class="clothes" src="/img/${top}.jpg"/>
+          <img class="clothes" src="/img/${bottom}.jpg"/>
+          <img class="clothes" src="/img/${shoes}.jpg"/>
+          <img class="clothes" src="/img/${prop}.jpg"/>
+          ${
+            coat === undefined
+              ? ""
+              : `<img class="clothes" src="/img/${coat}.jpg"/>`
+          }
+        </div>
       </div>
-    </div>
-    `);
+      `);
 
     let actualOutfit = {
+      top,
+      bottom,
+      shoes,
+      prop,
+    };
+
+    if (coat !== undefined) {
+      actualOutfit.coat = coat;
+    }
+
+    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
+
+    if (thereArePreviousOutfits !== null) {
+      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
+      previousOutfits.unshift(actualOutfit);
+      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
+    } else {
+      let previousOutfits = [];
+      previousOutfits.unshift(actualOutfit);
+      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
+    }
+
+    generateLastOutfit(actualOutfit);
+  }
+
+  if (weatherSelected === "warm" && situationSelected === "romantic") {
+    showRecommendedOutfit(
       warmRomanticTopRandom,
       warmRomanticBottomRandom,
       warmRomanticShoesRandom,
-      warmRomanticPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      warmRomanticPropRandom
+    );
   } else if (weatherSelected === "warm" && situationSelected === "friends") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${warmFriendsTopRandom} with ${warmFriendsBottomRandom} and ${warmFriendsShoesRandom}. Accompanying with ${warmFriendsPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${warmFriendsTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmFriendsBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmFriendsShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmFriendsPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       warmFriendsTopRandom,
       warmFriendsBottomRandom,
       warmFriendsShoesRandom,
-      warmFriendsPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      warmFriendsPropRandom
+    );
   } else if (weatherSelected === "warm" && situationSelected === "club") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${warmClubTopRandom} with ${warmClubBottomRandom} and ${warmClubShoesRandom}. Accompanying with ${warmClubPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${warmClubTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmClubBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmClubShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmClubPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       warmClubTopRandom,
       warmClubBottomRandom,
       warmClubShoesRandom,
-      warmClubPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      warmClubPropRandom
+    );
   } else if (weatherSelected === "warm" && situationSelected === "family") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${warmFamilyTopRandom} with ${warmFamilyBottomRandom} and ${warmFamilyShoesRandom}. Accompanying with ${warmFamilyPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${warmFamilyTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmFamilyBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmFamilyShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmFamilyPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       warmFamilyTopRandom,
       warmFamilyBottomRandom,
       warmFamilyShoesRandom,
-      warmFamilyPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      warmFamilyPropRandom
+    );
   } else if (weatherSelected === "warm" && situationSelected === "business") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${warmBusinessTopRandom} with ${warmBusinessBottomRandom} and ${warmBusinessShoesRandom}. Accompanying with ${warmBusinessPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${warmBusinessTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmBusinessBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmBusinessShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmBusinessPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       warmBusinessTopRandom,
       warmBusinessBottomRandom,
       warmBusinessShoesRandom,
-      warmBusinessPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      warmBusinessPropRandom
+    );
   } else if (weatherSelected === "warm" && situationSelected === "bar") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${warmBarTopRandom} with ${warmBarBottomRandom} and ${warmBarShoesRandom}. Accompanying with ${warmBarPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${warmBarTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmBarBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmBarShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${warmBarPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       warmBarTopRandom,
       warmBarBottomRandom,
       warmBarShoesRandom,
-      warmBarPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      warmBarPropRandom
+    );
   } else if (weatherSelected === "mild" && situationSelected === "romantic") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${mildRomanticTopRandom} with ${mildRomanticBottomRandom} and ${mildRomanticShoesRandom}. Accompanying with ${mildRomanticPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${mildRomanticTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildRomanticBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildRomanticShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildRomanticPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       mildRomanticTopRandom,
       mildRomanticBottomRandom,
       mildRomanticShoesRandom,
-      mildRomanticPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      mildRomanticPropRandom
+    );
   } else if (weatherSelected === "mild" && situationSelected === "friends") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${mildFriendsTopRandom} with ${mildFriendsBottomRandom} and ${mildFriendsShoesRandom}. Accompanying with ${mildFriendsPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${mildFriendsTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildFriendsBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildFriendsShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildFriendsPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       mildFriendsTopRandom,
       mildFriendsBottomRandom,
       mildFriendsShoesRandom,
-      mildFriendsPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      mildFriendsPropRandom
+    );
   } else if (weatherSelected === "mild" && situationSelected === "club") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${mildClubTopRandom} with ${mildClubBottomRandom} and ${mildClubShoesRandom}. Accompanying with ${mildClubPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${mildClubTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildClubBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildClubShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildClubPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       mildClubTopRandom,
       mildClubBottomRandom,
       mildClubShoesRandom,
-      mildClubPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      mildClubPropRandom
+    );
   } else if (weatherSelected === "mild" && situationSelected === "family") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${mildFamilyTopRandom} with ${mildFamilyBottomRandom} and ${mildFamilyShoesRandom}. Accompanying with ${mildFamilyPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${mildFamilyTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildFamilyBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildFamilyShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildFamilyPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       mildFamilyTopRandom,
       mildFamilyBottomRandom,
       mildFamilyShoesRandom,
-      mildFamilyPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      mildFamilyPropRandom
+    );
   } else if (weatherSelected === "mild" && situationSelected === "business") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${mildBusinessTopRandom} with ${mildBusinessBottomRandom} and ${mildBusinessShoesRandom}. Accompanying with ${mildBusinessPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${mildBusinessTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildBusinessBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildBusinessShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildBusinessPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       mildBusinessTopRandom,
       mildBusinessBottomRandom,
       mildBusinessShoesRandom,
-      mildBusinessPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      mildBusinessPropRandom
+    );
   } else if (weatherSelected === "mild" && situationSelected === "bar") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${mildBarTopRandom} with ${mildBarBottomRandom} and ${mildBarShoesRandom}. Accompanying with ${mildBarPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${mildBarTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildBarBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildBarShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${mildBarPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       mildBarTopRandom,
       mildBarBottomRandom,
       mildBarShoesRandom,
-      mildBarPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      mildBarPropRandom
+    );
   } else if (weatherSelected === "cold" && situationSelected === "romantic") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${coldRomanticTopRandom} with ${coldRomanticBottomRandom} and ${coldRomanticShoesRandom}. Accompanying with ${coldRomanticCoatRandom} and ${coldRomanticPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${coldRomanticTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldRomanticBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldRomanticShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldRomanticCoatRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldRomanticPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       coldRomanticTopRandom,
       coldRomanticBottomRandom,
       coldRomanticShoesRandom,
       coldRomanticPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      coldRomanticCoatRandom
+    );
   } else if (weatherSelected === "cold" && situationSelected === "friends") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${coldFriendsTopRandom} with ${coldFriendsBottomRandom} and ${coldFriendsShoesRandom}. Accompanying with ${coldFriendsCoatRandom} and ${coldFriendsPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${coldFriendsTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldFriendsBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldFriendsShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldFriendsCoatRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldFriendsPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       coldFriendsTopRandom,
       coldFriendsBottomRandom,
       coldFriendsShoesRandom,
       coldFriendsPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      coldFriendsCoatRandom
+    );
   } else if (weatherSelected === "cold" && situationSelected === "club") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${coldClubTopRandom} with ${coldClubBottomRandom} and ${coldClubShoesRandom}. Accompanying with ${coldClubCoatRandom} and ${coldClubPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${coldClubTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldClubBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldClubShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldClubCoatRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldClubPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       coldClubTopRandom,
       coldClubBottomRandom,
       coldClubShoesRandom,
       coldClubPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      coldClubCoatRandom
+    );
   } else if (weatherSelected === "cold" && situationSelected === "family") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${coldFamilyTopRandom} with ${coldFamilyBottomRandom} and ${coldFamilyShoesRandom}. Accompanying with ${coldFamilyCoatRandom} and ${coldFamilyPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${coldFamilyTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldFamilyBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldFamilyShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldFamilyCoatRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldFamilyPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       coldFamilyTopRandom,
       coldFamilyBottomRandom,
       coldFamilyShoesRandom,
       coldFamilyPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      coldFamilyCoatRandom
+    );
   } else if (weatherSelected === "cold" && situationSelected === "business") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${coldBusinessTopRandom} with ${coldBusinessBottomRandom} and ${coldBusinessShoesRandom}. Accompanying with ${coldBusinessCoatRandom} and ${coldBusinessPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${coldBusinessTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldBusinessBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldBusinessShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldBusinessCoatRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldBusinessPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       coldBusinessTopRandom,
       coldBusinessBottomRandom,
       coldBusinessShoesRandom,
       coldBusinessPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      coldBusinessCoatRandom
+    );
   } else if (weatherSelected === "cold" && situationSelected === "bar") {
-    $("#outfit-block").append(`
-    <div class="finalResult">
-    <h2>Your outfit is going to be ${coldBarTopRandom} with ${coldBarBottomRandom} and ${coldBarShoesRandom}. Accompanying with ${coldBarCoatRandom} and ${coldBarPropRandom}</h2>
-      <div class="outfitImages">
-        <img class="clothes" src="/img/${coldBarTopRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldBarBottomRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldBarShoesRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldBarCoatRandom}.jpg"/>
-        <img class="clothes" src="/img/${coldBarPropRandom}.jpg"/>
-      </div>
-    </div>
-    `);
-
-    let actualOutfit = {
+    showRecommendedOutfit(
       coldBarTopRandom,
       coldBarBottomRandom,
       coldBarShoesRandom,
       coldBarPropRandom,
-    };
-    let thereArePreviousOutfits = localStorage.getItem("previousOutfits");
-
-    if (thereArePreviousOutfits !== null) {
-      let previousOutfits = JSON.parse(localStorage.getItem("previousOutfits"));
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    } else {
-      let previousOutfits = [];
-      previousOutfits.unshift(actualOutfit);
-      localStorage.setItem("previousOutfits", JSON.stringify(previousOutfits));
-    }
-
-    generateLastOutfit(actualOutfit);
+      coldBarCoatRandom
+    );
   } else {
     $("#outfit-block").append(`
     <div class="finalResult">
@@ -1923,3 +898,5 @@ $("#previous-outfits-button").click(function () {
 $("#previous-outfits-hide").click(function () {
   $("#previous-outfits").slideUp("fast");
 });
+
+/////// MOVER ESTO
