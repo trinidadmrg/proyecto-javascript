@@ -1,8 +1,8 @@
 /**
- * @challenge: AJAX EN TU PROYECTO
-Tomando como ejemplo la llamada AJAX con JSON, incorpora al proyecto del simulador al menos una llamada AJAX.
+ * @challenge: TERCERA PRE-ENTREGA DEL PROYECTO FINAL
+Deberás incorporar jQuery para controlar elementos, sumar efectos y animaciones, así como optimizar diseño HTML y CSS, en función de la tercera entrega de tu proyecto final.
  *
- * @version : 1.11.0
+ * @version : 1.12.0
  * @author : Trinidad Margni
  * @fecha : 17/01/2021
  *
@@ -22,6 +22,7 @@ Tomando como ejemplo la llamada AJAX con JSON, incorpora al proyecto del simulad
  *  - v1.9.0 – Primera entrega de: SEGUNDA PRE-ENTREGA DEL PROYECTO FINAL
  *  - v1.10.0 – Primera entrega de: INCORPORAR JQUERY AL PROYECTO 
  *  - v1.11.0 – Primera entrega de: AJAX EN TU PROYECTO
+ *  - v1.12.0 – Primera entrega de: TERCERA PRE-ENTREGA DEL PROYECTO FINAL
  */
 
 //--------------------- Presentation and first steps
