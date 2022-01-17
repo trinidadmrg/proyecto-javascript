@@ -2,6 +2,7 @@
 
 let userName = localStorage.getItem("Name");
 let userNameExists = userName !== null;
+let showingPreviousOutfits = false;
 
 $(document).ready(function () {
   console.log("Doc is ready");
@@ -725,6 +726,7 @@ $("#secondary-button").click(function botonSecundario(event) {
     }
 
     generateLastOutfit(actualOutfit);
+    $("#palette-section").slideDown("fast");
   }
 
   if (weatherSelected === "warm" && situationSelected === "romantic") {
@@ -875,8 +877,12 @@ generateOutfit();
 function generateLastOutfit(outfit) {
   $("#previous-outfits-list").prepend(`
   <li>
-    Outfit: ${outfit.randomTopCR} +  ${outfit.randomBottomCR} + ${outfit.randomShoesCR} + ${outfit.randomPropCR}
+    Outfit: ${outfit.top} +  ${outfit.bottom} + ${outfit.shoes} + ${outfit.prop}
   </li>
+  <img class="previousClothes" src="/img/${outfit.top}.jpg"/>
+  <img class="previousClothes" src="/img/${outfit.bottom}.jpg"/>
+  <img class="previousClothes" src="/img/${outfit.shoes}.jpg"/>
+  <img class="previousClothes" src="/img/${outfit.prop}.jpg"/>
 `);
 }
 
@@ -885,18 +891,53 @@ function generateOutfit(event) {
   previousOutfits.forEach((outfit) => {
     $("#previous-outfits-list").append(`
     <li>
-      Outfit: ${outfit.randomTopCR} +  ${outfit.randomBottomCR} + ${outfit.randomShoesCR} + ${outfit.randomPropCR}
+      Outfit: ${outfit.top} +  ${outfit.bottom} + ${outfit.shoes} + ${outfit.prop}
     </li>
+  <img class="previousClothes" src="/img/${outfit.top}.jpg"/>
+  <img class="previousClothes" src="/img/${outfit.bottom}.jpg"/>
+  <img class="previousClothes" src="/img/${outfit.shoes}.jpg"/>
+  <img class="previousClothes" src="/img/${outfit.prop}.jpg"/>
   `);
   });
 }
 
 $("#previous-outfits-button").click(function () {
-  $("#previous-outfits").slideDown("fast");
+  if (showingPreviousOutfits === false) {
+    $("#previous-outfits").slideDown("fast");
+    showingPreviousOutfits = true;
+  } else {
+    $("#previous-outfits").slideUp("fast");
+    showingPreviousOutfits = false;
+  }
 });
 
 $("#previous-outfits-hide").click(function () {
   $("#previous-outfits").slideUp("fast");
 });
 
-/////// MOVER ESTO
+//--------------------- Color palette option & API
+
+let apiURL = "https://www.colr.org/json/schemes/random/1";
+let colorPalette = [];
+
+$.ajax({
+  method: "GET",
+  dataType: "json",
+  url: apiURL,
+  crossDomain: true,
+  success: function (respuesta) {
+    let colors = respuesta.schemes[0].colors;
+    colorPalette.push(colors[0]);
+    colorPalette.push(colors[1]);
+    colorPalette.push(colors[2]);
+    $("#generate-palette").click(() => {
+      $("#outfit-palette").append(`
+      <div class="paletteDiv" style="background-color: #${colors[0]}"></div>
+      <div class="paletteDiv" style="background-color: #${colors[1]}"></div>
+      <div class="paletteDiv" style="background-color: #${colors[2]}"></div>
+    `);
+      $("#generate-palette").attr("class", "hidden");
+      $("#color-palette-title").text("Here is your new palette");
+    });
+  },
+});

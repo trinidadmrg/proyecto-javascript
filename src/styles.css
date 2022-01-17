@@ -90,6 +90,10 @@ p {
   color: #c5b9ed;
 }
 
+button {
+  cursor: pointer;
+}
+
 .terciaryButtons {
   display: block;
   margin: 0 auto;
@@ -118,7 +122,7 @@ video {
   border-radius: 10px;
   box-shadow: 0px 2px 5px grey;
   display: block;
-  margin: 40px
+  margin: 40px;
 }
 
 .optionOne {
@@ -204,11 +208,16 @@ h3 {
   margin: 5px;
 }
 
+.previousClothes {
+  width: 40%;
+  border-radius: 20px;
+  margin: 5px;
+}
+
 .navbarLink {
   text-decoration: none;
   color: white;
 }
-
 
 /*------ Media Queries ------*/
 
@@ -218,15 +227,15 @@ h3 {
   h1 {
     font-size: 55px;
   }
-  
+
   h2 {
     font-size: 40px;
   }
-  
+
   p {
     font-size: 33px;
   }
-  
+
   video {
     width: 75%;
   }
@@ -275,6 +284,12 @@ h3 {
   .generalInputs {
     font-size: 25px;
   }
+
+  .previousClothes {
+    width: 20%;
+    border-radius: 20px;
+    margin: 5px;
+  }
 }
 
 /* Extra large and Extra Extra Large*/
@@ -283,5 +298,18 @@ h3 {
   .bigDiv {
     width: 85%;
   }
+
+  .previousClothes {
+    width: 10%;
+    border-radius: 20px;
+    margin: 5px;
+  }
 }
 
+.paletteDiv {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  border-radius: 50px;
+  margin: 5px;
+}
