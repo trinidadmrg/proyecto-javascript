@@ -1,3 +1,29 @@
+/**
+ * @challenge: AJAX EN TU PROYECTO
+Tomando como ejemplo la llamada AJAX con JSON, incorpora al proyecto del simulador al menos una llamada AJAX.
+ *
+ * @version : 1.11.0
+ * @author : Trinidad Margni
+ * @fecha : 17/01/2021
+ *
+ * History:
+ *  - v1.0.0 – Primera entrega de: CREAR UN ALGORITMO JS SIMPLE
+ *  - v1.1.0 – Primera entrega de: CREAR UN ALGORITMO CON UN CONDICIONAL
+ *  - v1.1.1 – Segunda entrega de: CREAR UN ALGORITMO CON UN CONDICIONAL. Correccion de nombre de versionado, parseo y comparaciones.
+ *  - v1.2.0 – Primera entrega de: CREAR UN ALGORITMO UTILIZANDO UN CICLO
+ *  - v1.3.0 – Primera entrega de: SIMULADOR INTERACTIVO
+ *  - v1.3.1 – Segunda entrega de: SIMULADOR INTERACTIVO
+ *  - v1.4.0 – Primera entrega de: INCORPORAR OBJETOS
+ *  - v1.4.1 – Segunda entrega de: INCORPORAR OBJETOS
+ *  - v1.5.0 – Primera entrega de: INCORPORAR ARRAYS
+ *  - v1.6.0 – Primera Entrega de: PRIMER PRE-ENTREGA DEL PROYECTO FINAL
+ *  - v1.7.0 – Primera Entrega de: INTERACTUAR CON HTML
+ *  - v1.8.0 – Primera Entrega de: INCORPORAR EVENTOS
+ *  - v1.9.0 – Primera entrega de: SEGUNDA PRE-ENTREGA DEL PROYECTO FINAL
+ *  - v1.10.0 – Primera entrega de: INCORPORAR JQUERY AL PROYECTO 
+ *  - v1.11.0 – Primera entrega de: AJAX EN TU PROYECTO
+ */
+
 //--------------------- Presentation and first steps
 
 let userName = localStorage.getItem("Name");
