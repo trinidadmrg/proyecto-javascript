@@ -23,6 +23,7 @@ Deberás incorporar jQuery para controlar elementos, sumar efectos y animaciones
  *  - v1.10.0 – Primera entrega de: INCORPORAR JQUERY AL PROYECTO 
  *  - v1.11.0 – Primera entrega de: AJAX EN TU PROYECTO
  *  - v1.12.0 – Primera entrega de: TERCERA PRE-ENTREGA DEL PROYECTO FINAL
+ *  - v2.00.0 – ENTREGA DEL PROYECTO FINAL
  */
 
 //--------------------- Presentation and first steps
