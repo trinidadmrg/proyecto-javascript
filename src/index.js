@@ -717,14 +717,14 @@ $("#secondary-button").click(function botonSecundario(event) {
       <div class="finalResult">
       <h2>Your outfit is going to be ${top} with ${bottom} and ${shoes}. Accompanying with ${prop}${coat === undefined ? "." : ` and ${coat}`}</h2>
         <div class="outfitImages">
-          <img class="clothes" src="/img/${top}.jpg"/>
-          <img class="clothes" src="/img/${bottom}.jpg"/>
-          <img class="clothes" src="/img/${shoes}.jpg"/>
-          <img class="clothes" src="/img/${prop}.jpg"/>
+          <img class="clothes" src="img/${top}.jpg"/>
+          <img class="clothes" src="img/${bottom}.jpg"/>
+          <img class="clothes" src="img/${shoes}.jpg"/>
+          <img class="clothes" src="img/${prop}.jpg"/>
           ${
             coat === undefined
               ? ""
-              : `<img class="clothes" src="/img/${coat}.jpg"/>`
+              : `<img class="clothes" src="img/${coat}.jpg"/>`
           }
         </div>
       </div>
@@ -907,10 +907,10 @@ function generateLastOutfit(outfit) {
   <li>
     Outfit: ${outfit.top} +  ${outfit.bottom} + ${outfit.shoes} + ${outfit.prop}
   </li>
-  <img class="previousClothes" src="/img/${outfit.top}.jpg"/>
-  <img class="previousClothes" src="/img/${outfit.bottom}.jpg"/>
-  <img class="previousClothes" src="/img/${outfit.shoes}.jpg"/>
-  <img class="previousClothes" src="/img/${outfit.prop}.jpg"/>
+  <img class="previousClothes" src="img/${outfit.top}.jpg"/>
+  <img class="previousClothes" src="img/${outfit.bottom}.jpg"/>
+  <img class="previousClothes" src="img/${outfit.shoes}.jpg"/>
+  <img class="previousClothes" src="img/${outfit.prop}.jpg"/>
 `);
 }
 
@@ -921,10 +921,10 @@ function generateOutfit(event) {
     <li>
       Outfit: ${outfit.top} +  ${outfit.bottom} + ${outfit.shoes} + ${outfit.prop}
     </li>
-  <img class="previousClothes" src="/img/${outfit.top}.jpg"/>
-  <img class="previousClothes" src="/img/${outfit.bottom}.jpg"/>
-  <img class="previousClothes" src="/img/${outfit.shoes}.jpg"/>
-  <img class="previousClothes" src="/img/${outfit.prop}.jpg"/>
+  <img class="previousClothes" src="img/${outfit.top}.jpg"/>
+  <img class="previousClothes" src="img/${outfit.bottom}.jpg"/>
+  <img class="previousClothes" src="img/${outfit.shoes}.jpg"/>
+  <img class="previousClothes" src="img/${outfit.prop}.jpg"/>
   `);
   });
 }
